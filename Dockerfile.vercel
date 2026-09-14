@@ -1,11 +1,24 @@
-FROM dunglas/frankenphp:php8.3
+FROM composer:2 AS dependencies
 
 WORKDIR /app
 
+COPY composer.json composer.lock ./
+
+RUN composer install --no-dev --no-interaction --no-progress --optimize-autoloader
+
+
+FROM dunglas/frankenphp:1-php8.4-alpine
+
+WORKDIR /app
+
+RUN install-php-extensions pdo_mysql
+
+COPY --from=dependencies /app/vendor ./vendor
+
 COPY . /app
 
-RUN docker-php-ext-install pdo_mysql
+COPY Caddyfile /etc/caddy/Caddyfile
 
-EXPOSE 80
+ENV PORT=80
 
-CMD ["frankenphp", "php-server", "--listen", ":80", "--root", "/app"]
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
