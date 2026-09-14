@@ -1,0 +1,375 @@
+@page {
+    size: A4;
+    margin: 16mm;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    background: #e5e7eb;
+
+    color: #111827;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10.5pt;
+
+    line-height: 1.5;
+}
+
+
+.cv-page {
+    width: 210mm;
+
+    min-height: 297mm;
+
+    margin: 30px auto;
+
+    padding: 18mm;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.cv-header {
+    padding-bottom: 15px;
+
+    border-bottom:
+        2px solid #111827;
+}
+
+
+.cv-header h1 {
+    margin: 0;
+
+    font-size: 25pt;
+
+    line-height: 1.1;
+
+    letter-spacing:
+        -0.03em;
+}
+
+
+.cv-headline {
+    margin:
+        5px 0 10px;
+
+    color: #4b5563;
+
+    font-size: 11pt;
+
+    font-weight: 600;
+}
+
+
+.cv-contact {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px 15px;
+
+    color: #4b5563;
+
+    font-size: 9pt;
+}
+
+
+.cv-contact span + span::before {
+    content: "•";
+
+    margin-right: 15px;
+
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.cv-section {
+    margin-top: 17px;
+}
+
+
+.cv-section h2 {
+    margin:
+        0 0 8px;
+
+    padding-bottom: 4px;
+
+    border-bottom:
+        1px solid #d1d5db;
+
+    font-size: 10.5pt;
+
+    letter-spacing:
+        0.08em;
+
+    font-weight: 700;
+}
+
+
+.cv-section > p {
+    margin: 0;
+
+    color: #374151;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Keep Section Heading With Following Content
+|--------------------------------------------------------------------------
+*/
+
+.section-title {
+    margin-bottom: 7px;
+
+    padding-bottom: 3px;
+
+    border-bottom:
+        1px solid #d1d5db;
+
+    font-size: 10pt;
+
+    letter-spacing:
+        0.08em;
+
+    font-weight: bold;
+
+    page-break-after: avoid;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Keep Individual Entry Together
+|--------------------------------------------------------------------------
+*/
+
+.cv-entry {
+    margin-bottom: 10px;
+
+    page-break-inside: avoid;
+}
+
+
+.cv-entry:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   ENTRIES
+========================================================= */
+
+.cv-entry {
+    margin-bottom: 12px;
+}
+
+
+.cv-entry:last-child {
+    margin-bottom: 0;
+}
+
+
+.cv-entry-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.cv-entry h3 {
+    margin: 0;
+
+    font-size: 10.5pt;
+
+    line-height: 1.3;
+}
+
+
+.cv-entry p {
+    margin:
+        3px 0 0;
+
+    color: #374151;
+
+    font-size: 9.5pt;
+}
+
+
+.cv-entry-header p {
+    font-weight: 600;
+}
+
+
+.cv-date {
+    flex-shrink: 0;
+
+    color: #6b7280;
+
+    font-size: 9pt;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.cv-skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px 18px;
+}
+
+
+.cv-skills span {
+    font-size: 9.5pt;
+}
+
+
+.cv-skills span::after {
+    content: " •";
+    
+    color: #9ca3af;
+}
+
+
+.cv-skills span:last-child::after {
+    content: "";
+}
+
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+
+    body {
+        background: #ffffff;
+    }
+
+
+    .cv-page {
+        width: auto;
+
+        min-height: auto;
+
+        margin: 0;
+
+        padding: 0;
+
+        box-shadow: none;
+    }
+
+
+    .section-title {
+        page-break-after: avoid;
+    }
+
+
+    .cv-entry {
+        page-break-inside: avoid;
+    }
+
+}
+
+/* =========================================================
+   SKILL CATEGORIES
+========================================================= */
+
+.cv-skill-category {
+    margin-top: 7px;
+}
+
+
+.cv-skill-category:first-of-type {
+    margin-top: 0;
+}
+
+
+.cv-skill-category h3 {
+    display: inline;
+
+    margin: 0;
+
+    font-size: 9.5pt;
+
+    font-weight: 700;
+}
+
+
+.cv-skill-category h3::after {
+    content: ": ";
+}
+
+
+.cv-skill-text {
+    display: inline;
+
+    margin: 0;
+
+    color: #374151;
+
+    font-size: 9.5pt;
+
+    line-height: 1.5;
+}
+
+.cv-bullets {
+    margin: 4px 0 0;
+
+    padding-left: 17px;
+
+    color: #374151;
+
+    font-size: 9pt;
+
+    line-height: 1.45;
+}
+
+
+.cv-bullets li {
+    margin-bottom: 2px;
+
+    padding-left: 2px;
+}
+
+
+.cv-bullets li:last-child {
+    margin-bottom: 0;
+}
