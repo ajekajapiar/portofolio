@@ -1,13 +1,14 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'portfolio_db';
-$username = 'root';
-$password = '';
+$host = getenv('MYSQLHOST');
+$port = getenv('MYSQLPORT') ?: '3306';
+$dbname = getenv('MYSQLDATABASE');
+$username = getenv('MYSQLUSER');
+$password = getenv('MYSQLPASSWORD');
 
 try {
     $pdo = new PDO(
-        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        "mysql:host={$host};port={$port};dbname={$dbname};charset=utf8mb4",
         $username,
         $password
     );
