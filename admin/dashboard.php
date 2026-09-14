@@ -11,39 +11,25 @@ require_once '../includes/functions.php';
 |--------------------------------------------------------------------------
 */
 
-$profileCount = $pdo
-    ->query("SELECT COUNT(*) FROM profile")
-    ->fetchColumn();
+$profileCount = 0;
 
 
-$educationCount = $pdo
-    ->query("SELECT COUNT(*) FROM education")
-    ->fetchColumn();
+$educationCount = 0;
 
 
-$experienceCount = $pdo
-    ->query("SELECT COUNT(*) FROM experience")
-    ->fetchColumn();
+$experienceCount = 0;
 
 
-$organizationCount = $pdo
-    ->query("SELECT COUNT(*) FROM organization")
-    ->fetchColumn();
+$organizationCount = 0;
 
 
-$projectCount = $pdo
-    ->query("SELECT COUNT(*) FROM projects")
-    ->fetchColumn();
+$projectCount = 0;
 
 
-$skillCount = $pdo
-    ->query("SELECT COUNT(*) FROM skills")
-    ->fetchColumn();
+$skillCount = 0;
 
 
-$certificationCount = $pdo
-    ->query("SELECT COUNT(*) FROM certifications")
-    ->fetchColumn();
+$certificationCount = 0;
 
 
 /*
