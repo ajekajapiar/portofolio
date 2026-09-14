@@ -6,11 +6,6 @@ require_once '../config/database.php';
 
 $error = '';
 
-if (isset($_SESSION['admin_id'])) {
-    header("Location: dashboard.php");
-    exit;
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $username = trim($_POST['username'] ?? '');
@@ -35,10 +30,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($password, $user['password'])) {
 
-            session_regenerate_id(true);
+            $secret = getenv('ADMIN_AUTH_SECRET');
 
-            $_SESSION['admin_id'] = $user['id'];
-            $_SESSION['admin_username'] = $user['username'];
+            if (!$secret) {
+                die('Authentication configuration is missing.');
+            }
+
+            $payload = base64_encode(json_encode([
+                'id' => (int) $user['id'],
+                'username' => $user['username']
+            ]));
+
+            $signature = hash_hmac(
+                'sha256',
+                $payload,
+                $secret
+            );
+
+            $token = $payload . '.' . $signature;
+
+            setcookie(
+                'admin_auth',
+                $token,
+                [
+                    'expires' => time() + (60 * 60 * 24 * 7),
+                    'path' => '/',
+                    'secure' => true,
+                    'httponly' => true,
+                    'samesite' => 'Lax'
+                ]
+            );
 
             header("Location: dashboard.php");
             exit;
