@@ -43,7 +43,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/dashboard.php"
+            href="/admin/dashboard.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/dashboard.php'
@@ -68,7 +68,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/profile.php"
+            href="/admin/profile.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/profile.php'
@@ -93,7 +93,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/education/index.php"
+            href="/admin/education/index.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/education/'
@@ -118,7 +118,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/experience/index.php"
+            href="/admin/experience/index.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/experience/'
@@ -143,7 +143,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/organization/index.php"
+            href="/admin/organization/index.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/organization/'
@@ -168,7 +168,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/projects/index.php"
+            href="/admin/projects/index.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/projects/'
@@ -193,7 +193,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/skills/index.php"
+            href="/admin/skills/index.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/skills/'
@@ -218,7 +218,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/certifications/index.php"
+            href="/admin/certifications/index.php"
             class="<?= strpos(
                 $currentPath,
                 '/admin/certifications/'
@@ -251,7 +251,7 @@ $currentPath = $_SERVER['PHP_SELF'];
 
 
         <a
-            href="/portfolio/admin/logout.php"
+            href="/admin/logout.php"
             class="sidebar-menu-link"
             style="
                 display:flex;
