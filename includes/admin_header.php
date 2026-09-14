@@ -22,7 +22,7 @@ $pageTitle = $pageTitle ?? 'Portfolio Admin';
 
     <link
         rel="stylesheet"
-        href="/portfolio/assets/css/admin.css"
+        href="/assets/css/admin.css">
     >
 
 </head>
